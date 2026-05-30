@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+
+.equipment-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 12px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+.equipment-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+.equipment-card.inactive {
+  opacity: 0.6;
+}
+
+.device-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.device-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.status-badge.active {
+  color: var(--color-success);
+}
+.status-badge.inactive {
+  color: var(--color-text-muted);
+}
+
+.status-dot-small {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+.status-dot-small.active {
+  background: var(--color-success);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.metrics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+}
+.metric-label {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+.metric-value {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.restart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 5px 0;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+.restart-button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-50);
+}
+.restart-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

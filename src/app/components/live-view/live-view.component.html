@@ -1,0 +1,47 @@
+<section class="live-view-section">
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="flex items-center gap-2">
+      <svg class="w-4 h-4 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+        <circle cx="12" cy="13" r="3"/>
+      </svg>
+      <h2 class="section-title">Live View</h2>
+      <span class="live-indicator">
+        <span class="live-dot"></span>
+        LIVE
+      </span>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="open-all-btn">Open All</button>
+      <button class="fullscreen-toggle-btn" title="Fullscreen">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 3 21 3 21 9"/>
+          <polyline points="9 21 3 21 3 15"/>
+          <line x1="21" y1="3" x2="14" y2="10"/>
+          <line x1="3" y1="21" x2="10" y2="14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Lane 1 Feeds Row -->
+  <div class="lane-feed-row">
+    <span class="lane-label-vertical">Lane 1</span>
+    <div class="feeds-grid">
+      @for (feed of liveFeedService.lane1Feeds(); track feed.id) {
+        <app-feed-panel [feed]="feed" />
+      }
+    </div>
+  </div>
+
+  <!-- Lane 2 Feeds Row -->
+  <div class="lane-feed-row">
+    <span class="lane-label-vertical">Lane 2</span>
+    <div class="feeds-grid">
+      @for (feed of liveFeedService.lane2Feeds(); track feed.id) {
+        <app-feed-panel [feed]="feed" />
+      }
+    </div>
+  </div>
+</section>

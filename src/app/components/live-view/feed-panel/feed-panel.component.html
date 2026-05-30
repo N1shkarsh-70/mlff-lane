@@ -1,0 +1,31 @@
+<div class="feed-container" #feedContainer>
+  <!-- Feed Image -->
+  <img [src]="feed().imageUrl" [alt]="feed().name" class="feed-image" loading="lazy" />
+
+  <!-- Top Overlay: Camera Name + Timestamp -->
+  <div class="feed-overlay-top">
+    <div class="feed-name">
+      <svg class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor"><path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.146 3.146a.5.5 0 0 1 .708 0l1 1a.5.5 0 1 1-.708.708l-1-1a.5.5 0 0 1 0-.708zm9.708 0a.5.5 0 0 1 0 .708l-1 1a.5.5 0 0 1-.708-.708l1-1a.5.5 0 0 1 .708 0z"/></svg>
+      {{ feed().name }}
+    </div>
+    <span class="feed-timestamp">{{ clockService.formattedTime() }}</span>
+  </div>
+
+  <!-- Bottom Overlay: LIVE badge + Resolution/Latency + Fullscreen -->
+  <div class="feed-overlay-bottom">
+    <div class="flex items-center gap-2">
+      @if (feed().isLive) {
+        <span class="live-badge">LIVE</span>
+      }
+      <span class="feed-metric">{{ getMetricLabel() }}&nbsp;&nbsp;{{ getMetricValue() }}</span>
+    </div>
+    <button class="fullscreen-btn" (click)="onFullscreen()" title="Fullscreen">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 3 21 3 21 9"/>
+        <polyline points="9 21 3 21 3 15"/>
+        <line x1="21" y1="3" x2="14" y2="10"/>
+        <line x1="3" y1="21" x2="10" y2="14"/>
+      </svg>
+    </button>
+  </div>
+</div>

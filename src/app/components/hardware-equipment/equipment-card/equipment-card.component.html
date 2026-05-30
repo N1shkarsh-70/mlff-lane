@@ -1,0 +1,72 @@
+<div class="equipment-card" [class.inactive]="device().status !== 'active'">
+  <!-- Card Header -->
+  <div class="flex items-start gap-3">
+    <!-- Device Icon -->
+    <div class="device-icon-wrapper">
+      @switch (device().type) {
+        @case ('rfid') {
+          <svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 10s3-3 5-3 5 3 5 3-3 3-5 3-5-3-5-3Z"/>
+            <path d="M14 10s3-3 5-3 5 3 5 3-3 3-5 3-5-3-5-3Z"/>
+            <circle cx="12" cy="14" r="2"/>
+            <path d="M12 16v4"/>
+          </svg>
+        }
+        @case ('anpr-front') {
+          <svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+            <circle cx="12" cy="13" r="3"/>
+          </svg>
+        }
+        @case ('anpr-back') {
+          <svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+            <circle cx="12" cy="13" r="3"/>
+          </svg>
+        }
+        @case ('radar-4d') {
+          <svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19.07 4.93A10 10 0 0 0 4.93 19.07"/>
+            <path d="M16.24 7.76A6 6 0 0 0 7.76 16.24"/>
+            <circle cx="12" cy="12" r="2"/>
+            <path d="M12 2v4"/>
+          </svg>
+        }
+        @case ('lidar-3d') {
+          <svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12h4"/>
+            <path d="M18 12h4"/>
+            <path d="M12 2v4"/>
+            <path d="M12 18v4"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="12" cy="12" r="8"/>
+          </svg>
+        }
+      }
+    </div>
+    <!-- Device Info -->
+    <div class="flex-1 min-w-0">
+      <h4 class="text-[12px] font-semibold text-text-primary leading-tight truncate">{{ device().name }}</h4>
+      <span class="status-badge" [class.active]="device().status === 'active'" [class.inactive]="device().status !== 'active'">
+        <span class="status-dot-small" [class.active]="device().status === 'active'"></span>
+        {{ device().status === 'active' ? 'Active' : 'Inactive' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="metrics-grid">
+    @for (metric of device().metrics; track metric.label) {
+      <div class="metric-item">
+        <span class="metric-label">{{ metric.label }}</span>
+        <span class="metric-value">{{ metric.value }}</span>
+      </div>
+    }
+  </div>
+
+  <!-- Restart Button -->
+  <button class="restart-button" (click)="onRestart()" [disabled]="isRestarting()">
+    <svg class="w-3 h-3" [class.animate-spin-once]="isRestarting()" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1.5 8a6.5 6.5 0 1 1 1.02 3.5M1.5 14v-2.5H4"/></svg>
+    Restart
+  </button>
+</div>

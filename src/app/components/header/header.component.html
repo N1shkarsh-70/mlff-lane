@@ -1,0 +1,100 @@
+<header class="header-bar">
+  <!-- Left: Logo + Title -->
+  <div class="flex items-center gap-2.5">
+    <div class="logo-icon">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+        <path d="M8 6C8 6 8 20 8 22C8 26 12 28 16 28C20 28 24 26 24 22V6" stroke="#1a3ab5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div>
+      <h1 class="text-[18px] font-bold text-text-primary leading-tight">Lane {{ laneService.selectedLane().id }}</h1>
+      <span class="text-[11px] text-text-muted">v1.0.23</span>
+    </div>
+  </div>
+
+  <!-- Center-Left: Lane Info Card -->
+  <div class="header-card flex items-center gap-5">
+    <!-- Lane Selector -->
+    <div class="flex flex-col items-start relative">
+      <span class="text-[10px] text-text-secondary font-medium uppercase tracking-wider">Lane</span>
+      <button class="lane-selector" (click)="toggleLaneDropdown()">
+        {{ laneService.selectedLane().name }}
+        <svg class="w-3.5 h-3.5 ml-1 transition-transform" [class.rotate-180]="laneDropdownOpen()" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      @if (laneDropdownOpen()) {
+        <div class="dropdown-menu">
+          @for (lane of laneService.lanes(); track lane.id) {
+            <button class="dropdown-item" [class.active]="lane.id === laneService.selectedLaneId()" (click)="selectLane(lane.id)">
+              {{ lane.name }}
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="h-8 w-px bg-border"></div>
+
+    <!-- Status -->
+    <div class="flex flex-col items-start">
+      <span class="text-[10px] text-text-secondary font-medium uppercase tracking-wider">Status</span>
+      <span class="flex items-center gap-1.5 text-[13px] font-semibold text-text-primary">
+        Active
+        <span class="status-dot active"></span>
+      </span>
+    </div>
+
+    <div class="h-8 w-px bg-border"></div>
+
+    <!-- Date & Time -->
+    <div class="flex flex-col items-start">
+      <span class="text-[10px] text-text-secondary font-medium uppercase tracking-wider">Date & Time</span>
+      <span class="flex items-center gap-1.5 text-[13px] font-medium text-text-primary">
+        <svg class="w-3.5 h-3.5 text-primary" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd"/></svg>
+        {{ clockService.formattedDateTime() }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Center-Right: Service Status Card -->
+  <div class="header-card flex items-center gap-4">
+    @for (service of laneService.serviceStatuses(); track service.name) {
+      <div class="flex flex-col items-start">
+        <span class="text-[10px] text-text-secondary font-medium uppercase tracking-wider">{{ service.name }}</span>
+        <div class="flex items-center gap-2">
+          <span class="flex items-center gap-1 text-[13px] font-semibold" [class.text-success]="service.status === 'active'" [class.text-danger]="service.status !== 'active'">
+            Active
+            <span class="status-dot" [class.active]="service.status === 'active'" [class.inactive]="service.status !== 'active'"></span>
+          </span>
+          <button class="restart-btn" (click)="restartService(service.name)" [class.restarting]="restartingService() === service.name">
+            <svg class="w-3 h-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1.5 8a6.5 6.5 0 1 1 1.02 3.5M1.5 14v-2.5H4"/></svg>
+            Restart
+          </button>
+        </div>
+      </div>
+      @if (!$last) {
+        <div class="h-8 w-px bg-border"></div>
+      }
+    }
+  </div>
+
+  <!-- Right: Notifications + User -->
+  <div class="flex items-center gap-4">
+    <!-- Notification Bell -->
+    <button class="notification-bell" title="Notifications">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+      </svg>
+      <span class="notification-badge">3</span>
+    </button>
+
+    <!-- User Profile -->
+    <div class="user-profile relative">
+      <button class="flex items-center gap-2" (click)="toggleUserDropdown()">
+        <div class="user-avatar">JD</div>
+        <span class="text-[13px] font-medium text-text-primary">John Doe</span>
+        <svg class="w-3.5 h-3.5 text-text-muted transition-transform" [class.rotate-180]="userDropdownOpen()" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+  </div>
+</header>

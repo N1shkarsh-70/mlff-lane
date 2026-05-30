@@ -1,0 +1,175 @@
+:host {
+  display: block;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 56px;
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-header);
+  gap: 16px;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+}
+
+.header-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 6px 16px;
+  height: 44px;
+}
+
+.lane-selector {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lane-selector:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--shadow-card-hover);
+  z-index: 50;
+  min-width: 120px;
+  animation: fade-in 0.15s ease-out;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.dropdown-item:hover {
+  background: var(--color-primary-50);
+}
+.dropdown-item.active {
+  color: var(--color-primary);
+  font-weight: 600;
+  background: var(--color-primary-light);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.status-dot.active {
+  background-color: var(--color-success);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+.status-dot.inactive {
+  background-color: var(--color-text-muted);
+}
+
+.restart-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.restart-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.restart-btn.restarting svg {
+  animation: spin-once 0.8s linear infinite;
+}
+
+.notification-bell {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.notification-bell:hover {
+  background: var(--color-primary-50);
+  color: var(--color-primary);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-danger);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-bg-card);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-profile button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-btn);
+  transition: background 0.15s;
+}
+.user-profile button:hover {
+  background: var(--color-primary-50);
+}
