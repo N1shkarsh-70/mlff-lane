@@ -5,36 +5,53 @@
   overflow: hidden;
 }
 
+/* === Outer Card Container === */
 .lane-status-section {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  padding: 6px 16px;
+  padding: 12px 20px;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  min-height: 60px;
-  max-height: 72px;
+  min-height: 68px;
 }
 
+/* Responsive outer padding */
+@media (min-width: 1280px) {
+  .lane-status-section {
+    padding: 12px 24px;
+  }
+}
+@media (min-width: 1536px) {
+  .lane-status-section {
+    padding: 14px 28px;
+  }
+}
+
+/* === Header: Left-aligned with separation === */
 .section-title {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--color-text-primary);
   white-space: nowrap;
   flex-shrink: 0;
-  /* margin-bottom: 4px; */
+  margin-right: 24px;
   line-height: 1;
 }
+@media (min-width: 1280px) {
+  .section-title {
+    margin-right: 32px;
+  }
+}
 
-/* Chip Row */
+/* === Chip Row === */
 .status-chips {
   display: flex;
   flex-wrap: nowrap;
   gap: 16px;
-  flex: 0 0 auto;
+  flex: 1;
   overflow-x: auto;
   align-items: center;
   white-space: nowrap;
@@ -52,18 +69,18 @@
   }
 }
 
-/* Individual Chip */
+/* === Individual Chip === */
 .status-chip {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
   white-space: nowrap;
-  min-width: 110px;
-  padding: 2px 8px 2px 2px;
+  min-width: 105px;
+  padding: 4px 10px 4px 4px;
 }
 
-/* Icon Circle */
+/* === Icon Circle === */
 .chip-icon {
   width: 30px;
   height: 30px;
@@ -80,7 +97,7 @@
   height: 15px;
 }
 
-/* Label + Status */
+/* === Label + Status === */
 .chip-info {
   display: flex;
   flex-direction: column;
