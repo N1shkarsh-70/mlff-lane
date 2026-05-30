@@ -1,38 +1,50 @@
 :host {
   display: block;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .lane-status-section {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  padding: 8px 16px;
+  padding: 4px 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
 }
 
 .section-title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--color-text-primary);
-  margin-bottom: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .status-chips {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  flex: 1;
+  overflow-x: auto;
+  align-items: center;
 }
 
 .status-chip {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex: 1;
-  min-width: 120px;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .chip-icon {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--color-primary-light);
   display: flex;
@@ -41,6 +53,10 @@
   flex-shrink: 0;
   color: var(--color-primary);
 }
+.chip-icon svg {
+  width: 14px;
+  height: 14px;
+}
 
 .chip-info {
   display: flex;
@@ -48,7 +64,7 @@
 }
 
 .chip-name {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--color-text-primary);
   line-height: 1.2;
@@ -57,8 +73,8 @@
 .chip-status {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 10px;
+  gap: 3px;
+  font-size: 9px;
   font-weight: 600;
   color: var(--color-text-muted);
 }
@@ -67,24 +83,12 @@
 }
 
 .chip-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--color-text-muted);
 }
 .chip-dot.active {
   background: var(--color-success);
   animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@media (max-width: 767px) {
-  .status-chips {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 4px;
-  }
-  .status-chip {
-    flex: none;
-    min-width: 130px;
-  }
 }

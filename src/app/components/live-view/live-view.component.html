@@ -30,7 +30,9 @@
     <span class="lane-label-vertical">Lane 1</span>
     <div class="feeds-grid">
       @for (feed of liveFeedService.lane1Feeds(); track feed.id) {
-        <app-feed-panel [feed]="feed" />
+        <div class="feed-cell" [attr.data-feed-type]="feed.type">
+          <app-feed-panel [feed]="feed" />
+        </div>
       }
     </div>
   </div>
@@ -40,7 +42,9 @@
     <span class="lane-label-vertical">Lane 2</span>
     <div class="feeds-grid">
       @for (feed of liveFeedService.lane2Feeds(); track feed.id) {
-        <app-feed-panel [feed]="feed" />
+        <div class="feed-cell" [attr.data-feed-type]="feed.type">
+          <app-feed-panel [feed]="feed" />
+        </div>
       }
     </div>
   </div>

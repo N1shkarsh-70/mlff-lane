@@ -18,25 +18,32 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 4px 10px;
   overflow: hidden;
   min-height: 0;
 }
 
-/* Distribute available height proportionally across sections */
+/* === Proportional Height Budget === */
+/* Header: ~7% (handled by the header component fixed height) */
+/* Remaining viewport distributed proportionally: */
+
 app-hardware-equipment {
-  flex: 0 0 auto;
+  flex: 0 0 26%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 app-live-view {
-  flex: 1 1 0;
+  flex: 0 0 36%;
   min-height: 0;
   overflow: hidden;
 }
 
 app-lane-status {
-  flex: 0 0 auto;
+  flex: 0 0 6%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 app-data-view {
@@ -45,29 +52,18 @@ app-data-view {
   overflow: hidden;
 }
 
-/* Responsive: allow scrolling on smaller screens */
-@media (max-width: 1439px) {
-  :host {
-    overflow-y: auto;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .dashboard-layout {
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
-  }
-
+/* === Large Desktop (2xl: 1536px+) === */
+@media (min-width: 1536px) {
   .dashboard-main {
-    overflow: visible;
-    gap: 10px;
-    padding: 10px 16px;
+    gap: 5px;
+    padding: 5px 14px;
   }
+}
 
-  app-live-view,
-  app-data-view {
-    flex: none;
-    overflow: visible;
+/* === Laptop (1366px - 1439px) density adjustment === */
+@media (max-width: 1439px) {
+  .dashboard-main {
+    gap: 3px;
+    padding: 3px 8px;
   }
 }

@@ -1,23 +1,31 @@
 :host {
   display: block;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .hardware-section {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  padding: 10px 16px;
+  padding: 6px 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
 }
 
 .section-title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--color-text-primary);
 }
@@ -26,7 +34,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--color-primary);
   text-decoration: none;
@@ -39,8 +47,10 @@
 .lane-row {
   display: flex;
   align-items: stretch;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 4px;
+  flex: 1;
+  min-height: 0;
 }
 .lane-row:last-child {
   margin-bottom: 0;
@@ -48,10 +58,10 @@
 
 .lane-label {
   writing-mode: horizontal-tb;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--color-text-secondary);
-  min-width: 48px;
+  min-width: 40px;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -60,24 +70,19 @@
 .equipment-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  gap: 6px;
   flex: 1;
 }
 
+/* Responsive: laptop */
 @media (max-width: 1439px) {
   .equipment-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1279px) {
   .equipment-grid {
-    grid-template-columns: 1fr;
-  }
-  .lane-row {
-    flex-direction: column;
-  }
-  .lane-label {
-    writing-mode: horizontal-tb;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
