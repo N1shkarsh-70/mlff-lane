@@ -155,4 +155,16 @@ export const VEHICLE_RECORDS: VehicleRecord[] = [
     speed: 65.2, length: 10.8, axles: 2, confidence: 96,
     paymentStatus: 'Paid', snapshotUrl: 'assets/feeds/anpr-front.png',
   },
+  {
+    timestamp: '07/05/2025 07:05:38 PM', lane: 1, direction: 'Inbound',
+    plateNumber: 'A440010', vehicleType: 'Truck', vehicleClass: 'Class 3',
+    speed: 65.2, length: 10.8, axles: 2, confidence: 96,
+    paymentStatus: 'Paid', snapshotUrl: 'assets/feeds/anpr-front.png',
+  },
+  {
+    timestamp: '07/05/2025 07:05:40 PM', lane: 1, direction: 'Inbound',
+    plateNumber: 'A440011', vehicleType: 'Car', vehicleClass: 'Class 3',
+    speed: 65.2, length: 10.8, axles: 2, confidence: 96,
+    paymentStatus: 'Paid', snapshotUrl: 'assets/feeds/anpr-front.png',
+  }
 ];

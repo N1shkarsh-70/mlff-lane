@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  height: 48px;
+  height: 60px;
   background: var(--color-bg-card);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-header);
@@ -25,7 +25,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   padding: 6px 16px;
-  height: 44px;
+  height: 53px;
 }
 
 .lane-selector {

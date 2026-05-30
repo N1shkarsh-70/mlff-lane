@@ -29,7 +29,7 @@
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* === Border Radius === */
-  --radius-card: 10px;
+  --radius-card: 16px;
   --radius-badge: 20px;
   --radius-btn: 6px;
   --radius-pill: 9999px;
