@@ -24,21 +24,15 @@
   min-height: 0;
 }
 
-/* === Proportional Height Budget === */
+/* === Proportional Height Budget (Header: 7%, HW: 24%, Live: 40%, Data: 29%) === */
 app-hardware-equipment {
-  flex: 0 0 26%;
+  flex: 0 0 24%;
   min-height: 0;
   overflow: hidden;
 }
 
 app-live-view {
-  flex: 0 0 36%;
-  min-height: 0;
-  overflow: hidden;
-}
-
-app-lane-status {
-  flex: 0 0 6%;
+  flex: 0 0 40%;
   min-height: 0;
   overflow: hidden;
 }
