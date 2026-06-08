@@ -4,26 +4,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* === Colors === */
-  --color-primary: #1a3ab5;
-  --color-primary-dark: #142d8c;
-  --color-primary-light: #e8ecfa;
-  --color-primary-50: #f0f3ff;
-  --color-primary-100: #dce3ff;
-  --color-success: #22c55e;
-  --color-success-light: #dcfce7;
-  --color-danger: #ef4444;
-  --color-danger-light: #fee2e2;
+  /* === Colors — Glassmorphism Pink/Lavender === */
+  --color-primary: #0241FC;
+  --color-primary-dark: #0231CC;
+  --color-primary-light: rgba(2, 65, 252, 0.08);
+  --color-primary-50: rgba(2, 65, 252, 0.05);
+  --color-primary-100: rgba(2, 65, 252, 0.10);
+  --color-success: #1DBF73;
+  --color-success-light: rgba(29, 191, 115, 0.12);
+  --color-danger: #FF4D4F;
+  --color-danger-light: rgba(255, 77, 79, 0.12);
   --color-warning: #f59e0b;
-  --color-bg-page: #f0f2f8;
-  --color-bg-card: #ffffff;
+  --color-bg-page: #FFF7FB;
+  --color-bg-card: rgba(255, 255, 255, 0.55);
+  --color-bg-card-solid: rgba(255, 255, 255, 0.72);
   --color-bg-dark: #0f172a;
   --color-bg-overlay: rgba(15, 23, 42, 0.7);
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #64748b;
-  --color-text-muted: #94a3b8;
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
+  --color-text-primary: #1B1D2A;
+  --color-text-secondary: #6D7285;
+  --color-text-muted: #8E92A7;
+  --color-border: rgba(255, 255, 255, 0.65);
+  --color-border-hover: rgba(255, 225, 240, 0.75);
+
+  /* === Accent Gradients === */
+  --accent-pink: #FF7AC6;
+  --accent-purple: #C97BFF;
 
   /* === Font Family === */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -31,13 +36,14 @@
   /* === Border Radius === */
   --radius-card: 16px;
   --radius-badge: 20px;
-  --radius-btn: 6px;
+  --radius-btn: 8px;
   --radius-pill: 9999px;
 
-  /* === Shadows === */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
-  --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* === Shadows (very subtle) === */
+  --shadow-card: 0 4px 16px rgba(214, 188, 210, 0.10);
+  --shadow-card-hover: 0 10px 28px rgba(229, 160, 205, 0.18);
+  --shadow-header: 0 8px 30px rgba(215, 177, 203, 0.12);
+  --shadow-inner-glow: 0 6px 20px rgba(236, 177, 215, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 /* === Global Resets & Base Styles === */
@@ -52,7 +58,7 @@ html, body {
   width: 100%;
   overflow: hidden;
   font-family: var(--font-sans);
-  background-color: var(--color-bg-page);
+  background: linear-gradient(135deg, #FFF7FB 0%, #FDFDFF 35%, #F8EEFF 70%, #FFEAF5 100%);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,7 +73,7 @@ html, body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-hover);
+  background: rgba(255, 225, 240, 0.75);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -81,8 +87,8 @@ html, body {
 }
 
 @keyframes pulse-live {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
-  50% { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.5); }
+  50% { box-shadow: 0 0 0 4px rgba(255, 77, 79, 0); }
 }
 
 @keyframes spin-once {
@@ -125,4 +131,3 @@ html, body {
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
-

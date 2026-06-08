@@ -5,19 +5,20 @@
 }
 
 .equipment-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: var(--radius-card);
   padding: 8px 10px 6px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   height: 100%;
   overflow: hidden;
+  box-shadow: var(--shadow-inner-glow);
 }
 .equipment-card:hover {
-  border-color: var(--color-border-hover);
+  border-color: rgba(255, 225, 240, 0.75);
   box-shadow: var(--shadow-card-hover);
 }
 .equipment-card.inactive {
@@ -28,7 +29,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--color-primary-light);
+  background: rgba(2, 65, 252, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,8 +97,8 @@
   font-size: 10px;
   font-weight: 500;
   color: var(--color-text-secondary);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: var(--radius-btn);
   cursor: pointer;
   transition: all 0.2s;
@@ -105,9 +106,9 @@
   flex-shrink: 0;
 }
 .restart-button:hover {
-  border-color: var(--color-primary);
+  border-color: var(--accent-pink);
   color: var(--color-primary);
-  background: var(--color-primary-50);
+  background: rgba(255, 122, 198, 0.08);
 }
 .restart-button:disabled {
   opacity: 0.5;

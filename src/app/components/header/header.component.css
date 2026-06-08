@@ -8,8 +8,10 @@
   justify-content: space-between;
   padding: 0 16px;
   height: 60px;
-  background: var(--color-bg-card);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow: var(--shadow-header);
   gap: 10px;
   flex-shrink: 0;
@@ -21,8 +23,10 @@
 }
 
 .header-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: var(--radius-card);
   padding: 6px 16px;
   height: 53px;
@@ -35,7 +39,7 @@
   font-weight: 600;
   color: var(--color-text-primary);
   background: none;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 225, 240, 0.75);
   padding: 2px 8px;
   border-radius: var(--radius-btn);
   cursor: pointer;
@@ -51,8 +55,10 @@
   top: 100%;
   left: 0;
   margin-top: 4px;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: var(--radius-btn);
   box-shadow: var(--shadow-card-hover);
   z-index: 50;
@@ -73,12 +79,12 @@
   transition: background 0.15s;
 }
 .dropdown-item:hover {
-  background: var(--color-primary-50);
+  background: rgba(255, 122, 198, 0.08);
 }
 .dropdown-item.active {
   color: var(--color-primary);
   font-weight: 600;
-  background: var(--color-primary-light);
+  background: rgba(2, 65, 252, 0.06);
 }
 
 .status-dot {
@@ -104,7 +110,7 @@
   font-weight: 500;
   color: var(--color-text-secondary);
   background: none;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 225, 240, 0.75);
   padding: 2px 8px;
   border-radius: var(--radius-btn);
   cursor: pointer;
@@ -129,7 +135,7 @@
   transition: all 0.2s;
 }
 .notification-bell:hover {
-  background: var(--color-primary-50);
+  background: rgba(255, 122, 198, 0.08);
   color: var(--color-primary);
 }
 
@@ -147,14 +153,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-bg-card);
+  border: 2px solid rgba(255, 255, 255, 0.85);
 }
 
 .user-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #FF7AC6, #C97BFF);
   color: white;
   display: flex;
   align-items: center;
@@ -172,5 +178,5 @@
   transition: background 0.15s;
 }
 .user-profile button:hover {
-  background: var(--color-primary-50);
+  background: rgba(255, 122, 198, 0.08);
 }

@@ -6,14 +6,17 @@
 }
 
 .live-view-section {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 245, 250, 0.52);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: var(--radius-card);
   padding: 6px 12px;
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
 .section-header {
@@ -54,21 +57,21 @@
   font-size: 11px;
   font-weight: 500;
   color: var(--color-text-secondary);
-  background: none;
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   padding: 3px 10px;
   border-radius: var(--radius-btn);
   cursor: pointer;
   transition: all 0.2s;
 }
 .open-all-btn:hover {
-  border-color: var(--color-primary);
+  border-color: var(--accent-pink);
   color: var(--color-primary);
 }
 
 .fullscreen-toggle-btn {
-  background: none;
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   color: var(--color-text-secondary);
   padding: 3px;
   border-radius: var(--radius-btn);
@@ -78,7 +81,7 @@
   align-items: center;
 }
 .fullscreen-toggle-btn:hover {
-  border-color: var(--color-primary);
+  border-color: var(--accent-pink);
   color: var(--color-primary);
 }
 
@@ -123,7 +126,7 @@
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 /* ANPR Front: 2 cols */

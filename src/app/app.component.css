@@ -10,7 +10,7 @@
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  background: var(--color-bg-page);
+  background: linear-gradient(135deg, #FFF7FB 0%, #FDFDFF 35%, #F8EEFF 70%, #FFEAF5 100%);
   overflow: hidden;
 }
 
@@ -25,9 +25,6 @@
 }
 
 /* === Proportional Height Budget === */
-/* Header: ~7% (handled by the header component fixed height) */
-/* Remaining viewport distributed proportionally: */
-
 app-hardware-equipment {
   flex: 0 0 26%;
   min-height: 0;
@@ -60,7 +57,7 @@ app-data-view {
   }
 }
 
-/* === Laptop (1366px - 1439px) density adjustment === */
+/* === Laptop density adjustment === */
 @media (max-width: 1439px) {
   .dashboard-main {
     gap: 3px;
